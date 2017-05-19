@@ -25,6 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 
+app.get('/download', function(req, res){
+  var file = __dirname + '/public/pdf/BUSYALERT USER’S GUIDE.pdf';
+  res.download(file); // Set disposition and send it.
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
