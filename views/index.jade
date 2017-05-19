@@ -1,5 +1,136 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .preloader
+    .loaded  
+  nav.navbar.navbar-default.navbar-fixed-top
+    .container
+      //- Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#')
+          img(src='/images/logo.png', alt='')
+      //- Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li.active
+            a(href='#home') Home
+          li
+            a(href='#services') Services
+          li
+            a(href='#about') About us
+      //- /.navbar-collapse
+    //- /.container-fluid
+  //- Home page style
+  header#home.home
+    .container
+      .row
+        .col-md-6.col-md-offset-6.col-sm-12.col-xs-12
+          .home-content.sections
+            h1
+              | Your app for a
+              span Safe Driving.
+            p
+              | Welcome to BusyAlert. We are involved with safe driving of our users. So we introduce you this application that will be able to notify automatically your friends when you are driving or other busy activities.
+            a(href='https://github.com/pbalaguer19/BusyAlert')
+              button.btn.btn-primary.btn-lg(style='margin-right: 40px;') Download
+            a(href='#services')
+              button.btn.btn-default.btn-lg Learn More
+            .available
+              p
+                | Available on :
+                a(href='#')
+                  i.fa.fa-android
+  // Sections
+  section#services.sections.lightbg
+    .container.text-center
+      .heading-content
+        h3 Services
+        h5 BusyAlert provides you:
+      // Example row of columns
+      .row
+        .col-md-3.col-sm-6.col-xs-12
+          .features-content
+            i.fa.fa-shield
+            h5 Security
+            p
+              | Feel safe while driving. BusyAlert will notify all your friends about your activity.
+        .col-md-3.col-sm-6.col-xs-12
+          .features-content
+            i.fa.fa-comments
+            h5 Customize your friends list
+            p
+              | You can also decide which friends will be notified about your activity. With just one easy step you will be able to modify the favourite-friends list.
+        .col-md-3.col-sm-6.col-xs-12
+          .features-content
+            i.fa.fa-tablet
+            h5 Simple design
+            p
+              | With BusyAlert you will feel comfortable with its usable, intuitive and simple design.
+        .col-md-3.col-sm-6.col-xs-12
+          .features-content
+            i.fa.fa-star
+            h5 Become premium!
+            p
+              | If you want more functionalities, you can also become a premium user. This option will give you more notification options for a very competitive price.
+        a(href='#')
+          button.btn.btn-primary.btn-lg(style='margin-top: 40px;') Download user guide
+    // /container
+  // Sections
+  section#about.sections.lightbg(style='padding-bottom: 100px;')
+    .container.text-center
+      .heading-content
+        h3 About us
+        h5 The developement team is coposed by:
+      .item.col-md-12
+        .col-md-4
+          .testimonial-photo
+            img(src='/images/pau.png', alt='')
+        .col-md-8
+          .testimonial-content
+            p
+              | BusyAlert cofundator and developer of the platform. Always taking care of the look of the application and optimizing the functionalities.
+            h6
+              strong
+                | Pau Balaguer
+                br
+                | Universitat de Lleida Student
+      .item.col-md-12
+        .col-md-4
+          .testimonial-photo
+            img(src='/images/javi.png', alt='')
+        .col-md-8
+          .testimonial-content
+            p
+              | BusyAlert cofundator and developer of the platform. Always trying to perform new ideas for the improvement of the application.
+            h6
+              strong
+                | Javier Calvo
+                br
+                | Universitat de Lleida Student
+    // /container
+  // Footer
+  footer#footer.footer.colorsbg
+    .container
+      .row
+        .col-md-6.col-sm-6.col-xs-12
+          .copyright.text-left
+            p
+              | Template by
+              a(href='http://bootstrapthemes.co')  Bootstrap Themes
+              | 2016. All rights reserved.
+        .col-md-6.col-sm-6.col-xs-12
+          .copyright.text-right
+            p BusyAlert | Universitat de Lleida
+
+  script(src='/javascripts/vendor/jquery-1.11.2.min.js')
+  script(src='/javascripts/vendor/bootstrap.min.js')
+  script(src='http://maps.google.com/maps/api/js')
+  script(src='/javascripts/gmaps.min.js')
+  script(src='/javascripts/jquery.magnific-popup.js')
+  script(src='/javascripts/plugins.js')
+  script(src='/javascripts/main.js')
