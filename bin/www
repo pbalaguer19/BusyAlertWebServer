@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('webserver:server');
 var http = require('http');
+var db = require('../models/index.js');
 
 /**
  * Get port from environment and store in Express.
@@ -88,3 +89,9 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log('Express listenning on port ' + PORT);
+  });
+});

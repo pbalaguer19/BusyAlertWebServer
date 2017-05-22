@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
+var _ = require('underscore');
 var db = require('./testingdb.js');
 
 var index = require('./routes/index');
@@ -43,6 +44,17 @@ app.get('/userinfos', function(req, res){
     res.status(500).send();
   });
 });
+
+app.post('/userinfos', function(req, res){
+  var body = _.pick(req.body, 'userId', 'action', 'extraData');
+
+	db.userinfo.create(body).then(function (userinfos) {
+		res.json(userinfos.toJSON());
+	}, function (e) {
+    console.log(req);
+		res.status(400).json(e);
+	});
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

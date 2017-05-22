@@ -1,12 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('userinfo', {
-    id: {
+    userId: {
       type: DataTypes.STRING,
-      primaryKey: true,
-      allowNull: false
-    },
-    date: {
-      type: DataTypes.DATE,
       allowNull: false
     },
     action: {
