@@ -5,10 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
+var db = require('./testingdb.js');
 
 var index = require('./routes/index');
 
 var app = express();
+var PORT = process.env.PORT || 5000;
+var userinfos = [];
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +33,17 @@ app.get('/download', function(req, res){
   res.download(file); // Set disposition and send it.
 });
 
+app.get('/userinfos', function(req, res){
+  var query = req.query;
+  var where = {};
+
+  db.userinfo.findAll({where: where}).then(function (userinfos){
+    res.json(userinfos);
+  }, function (e) {
+    res.status(500).send();
+  });
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -49,3 +63,9 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log('Express listenning on port ' + PORT);
+  });
+});
