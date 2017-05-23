@@ -37,7 +37,8 @@ app.get('/download', function(req, res){
 app.get('/api', function(req, res){
   var query = req.query;
   var allLogs = {}
-  var where = {
+  var newusers = {}
+  var where1 = {
     action: 'NEW_USER'
   }
 
@@ -47,8 +48,27 @@ app.get('/api', function(req, res){
     res.status(500).send();
   });
 
-  db.userinfo.findAll({where: where}).then(function (userinfos){
-    res.render('api', { info: allLogs, newusers: userinfos });
+  db.userinfo.findAll({where: where1}).then(function (userinfos){
+    newusers = userinfos;
+  }, function (e) {
+    res.status(500).send();
+  });
+
+  var currentdate = new Date();
+  var diff=30;
+  var time = new Date(currentdate.getTime() - diff*60000);
+  var day=time.getDate();
+  var month=time.getMonth()+1;
+  var year=time.getFullYear();
+  var time=year + '-' + month + '-' + day;
+  var where2 = {
+    createdAt: {
+      $gte: time
+    }
+  }
+
+  db.userinfo.findAll({where: where2}).then(function (userinfos){
+    res.render('api', { info: allLogs, newusers: newusers, today: userinfos });
   }, function (e) {
     res.status(500).send();
   });
