@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var _ = require('underscore');
-var db = require('./testingdb.js');
 
 var index = require('./routes/index');
 
