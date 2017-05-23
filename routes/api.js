@@ -8,7 +8,7 @@ router.get('/api', function(req, res, next) {
   console.log(db);
   db.userinfo.findAll({}).then(function (userinfos){
     res.render('api', { info: JSON.stringify(userinfos) });
-  }
   });
+  };
 
 module.exports = router;
