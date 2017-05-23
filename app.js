@@ -9,6 +9,7 @@ var _ = require('underscore');
 var db = require('./models/index');
 
 var index = require('./routes/index');
+var api = require('./routes/api');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -28,6 +29,7 @@ app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/api', api);
 
 app.get('/download', function(req, res){
   var file = __dirname + '/public/pdf/BUSYALERT USER’S GUIDE.pdf';
