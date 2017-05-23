@@ -9,7 +9,6 @@ var _ = require('underscore');
 var db = require('./models/index');
 
 var index = require('./routes/index');
-var api = require('./routes/api');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -29,11 +28,21 @@ app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/api', api);
 
 app.get('/download', function(req, res){
   var file = __dirname + '/public/pdf/BUSYALERT USER’S GUIDE.pdf';
   res.download(file); // Set disposition and send it.
+});
+
+app.get('/api', function(req, res){
+  var query = req.query;
+
+  db.userinfo.findAll({}).then(function (userinfos){
+    console.log(userinfos);
+    res.render('api', { info: JSON.stringify(userinfos) });
+  }, function (e) {
+    res.status(500).send();
+  });
 });
 
 app.post('/api', function(req, res){
