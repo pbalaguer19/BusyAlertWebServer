@@ -48,7 +48,7 @@ app.get('/api', function(req, res){
   });
 
   db.userinfo.findAll({where: where}).then(function (userinfos){
-    res.render('api', { info: allLogs, newusers: userinfo });
+    res.render('api', { info: allLogs, newusers: userinfos });
   }, function (e) {
     res.status(500).send();
   });
