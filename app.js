@@ -76,7 +76,7 @@ app.get('/api', function(req, res){
 });
 
 app.get('/users', function(req, res){
-  res.render('users', {});
+  res.render('users', { title: 'Express' });
 });
 
 app.post('/users', function(req, res){
