@@ -39,7 +39,7 @@ app.get('/api', function(req, res){
 
   db.userinfo.findAll({}).then(function (userinfos){
     console.log(userinfos);
-    res.render('api', { info: JSON.stringify(userinfos) });
+    res.render('api', { info: userinfos });
   }, function (e) {
     res.status(500).send();
   });
