@@ -36,9 +36,9 @@ app.get('/download', function(req, res){
 
 app.get('/userinfos', function(req, res){
   var query = req.query;
-  var where = {};
+  var attr = ['userId', 'action', 'extraData'];
 
-  db.userinfo.findAll({where: where}).then(function (userinfos){
+  db.userinfo.findAll({attributes: attr}).then(function (userinfos){
     res.json(userinfos);
   }, function (e) {
     res.status(500).send();
