@@ -72,26 +72,26 @@ block content
                 
   // Sections
   section#today.sections.lightbg
-  .container.text-center
-    .heading-content
-      h5 Today's Logs:
-      
-      table.table
-        thead
-          tr
-            th(style='text-align: center;') UserID
-            th(style='text-align: center;') Action
-            th(style='text-align: center;') Data
-            
-        for result in today
-          -var extra = JSON.stringify(result.extraData);
-          tbody
+    .container.text-center
+      .heading-content
+        h5 Today's Logs:
+        
+        table.table
+          thead
             tr
-              td #{result.userId}
-              td #{result.action}
-              td #{extra}
-            tr
-      
+              th(style='text-align: center;') UserID
+              th(style='text-align: center;') Action
+              th(style='text-align: center;') Data
+              
+          for result in today
+            -var extra = JSON.stringify(result.extraData);
+            tbody
+              tr
+                td #{result.userId}
+                td #{result.action}
+                td #{extra}
+              tr
+        
   a(href='#')
     button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET
           
