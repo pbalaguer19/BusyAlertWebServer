@@ -17,8 +17,10 @@ block content
       //- Collect the nav links, forms, and other content for toggling
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.navbar-right
-          li.active
+          li
             a(href='/') Home
+          li.active
+            a(href='#') API
   
   // Sections
   section#services.sections.lightbg
@@ -27,13 +29,27 @@ block content
         h3 API
         h5 All historic:
         
-        ul
+        ul.list-group
           for result in info
-             li #{result.userId}
+             li.list-group-item #{result.userId} : #{result.action} === #{result.extraData}
       
         a(href='#')
           button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET
-   
+          
+  // Footer
+  footer#footer.footer.colorsbg
+    .container
+      .row
+        .col-md-6.col-sm-6.col-xs-12
+          .copyright.text-left
+            p
+              | Template by
+              a(href='http://bootstrapthemes.co')  Bootstrap Themes
+              | 2016. All rights reserved.
+        .col-md-6.col-sm-6.col-xs-12
+          .copyright.text-right
+            p BusyAlert | Universitat de Lleida
+
    script(src='/javascripts/vendor/jquery-1.11.2.min.js')
    script(src='/javascripts/vendor/bootstrap.min.js')
    script(src='/javascripts/jquery.magnific-popup.js')
