@@ -83,7 +83,7 @@ app.post('/users', function(req, res){
   var id = req.body.userID;
   var where = {
     userId: {
-      $eq: userID
+      $eq: id
     }
   }
 
