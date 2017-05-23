@@ -7,13 +7,13 @@
 var app = require('../app');
 var debug = require('debug')('webserver:server');
 var http = require('http');
-var db = require('../models/index.js');
+var db = require('../models/index');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '5000');
 app.set('port', port);
 
 /**

@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var stylus = require('stylus');
 var _ = require('underscore');
-var db = require('./models/index.js');
+var db = require('./models/index');
 
 var index = require('./routes/index');
 
@@ -75,9 +75,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log('Express listenning on port ' + PORT);
-  });
-});
