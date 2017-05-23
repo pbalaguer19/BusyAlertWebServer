@@ -39,7 +39,7 @@ app.get('/api', function(req, res){
   //var attr = ['userId', 'action', 'extraData'];
 
   db.userinfo.findAll({}).then(function (userinfos){
-    res.render('api', { info: userinfos.toJSON() });
+    res.render('api', { info: JSON.stringify(userinfos) });
   }, function (e) {
     res.status(500).send();
   });
