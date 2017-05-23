@@ -38,7 +38,6 @@ app.get('/api', function(req, res){
   var query = req.query;
 
   db.userinfo.findAll({}).then(function (userinfos){
-    console.log(userinfos);
     res.render('api', { info: userinfos });
   }, function (e) {
     res.status(500).send();

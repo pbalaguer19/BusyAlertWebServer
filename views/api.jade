@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  
   .preloader
     .loaded  
   nav.navbar.navbar-default.navbar-fixed-top
@@ -31,7 +32,8 @@ block content
         
         ul.list-group
           for result in info
-             li.list-group-item #{result.userId} : #{result.action} === #{result.extraData}
+            -var extra = JSON.stringify(result.extraData);
+            li.list-group-item #{result.userId} : #{result.action} === #{extra}
       
         a(href='#')
           button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET
