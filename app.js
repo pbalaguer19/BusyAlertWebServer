@@ -34,7 +34,7 @@ app.get('/download', function(req, res){
   res.download(file); // Set disposition and send it.
 });
 
-app.get('/userinfos', function(req, res){
+app.get('/api', function(req, res){
   var query = req.query;
   //var attr = ['userId', 'action', 'extraData'];
 
@@ -45,7 +45,7 @@ app.get('/userinfos', function(req, res){
   });
 });
 
-app.post('/userinfos', function(req, res){
+app.post('/api', function(req, res){
 	db.userinfo.create({
     userId: req.body.userId,
     action: req.body.action,
