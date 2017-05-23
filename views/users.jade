@@ -20,22 +20,26 @@ block content
         ul.nav.navbar-nav.navbar-right
           li
             a(href='/') Home
+          li
+            a(href='/api') API
           li.active
-            a(href='#all') All logs
-          li
-            a(href='#newusers') New Users
-          li
-            a(href='#today') Today's logs
-          li
             a(href='/users') Users logs
   
+
+  input(type='text', name='userID', placeholder='Write a User ID')
+
+  a(type='submit')
+    button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET USER LOG
+    
+  a(href='/deleteuser', type='submit')
+    button.btn.btn-primary.btn-lg(style='margin-top: 40px;') DELETE USER LOG
+    
   // Sections
   section#all.sections.lightbg
     .container.text-center
       .heading-content
-        h3 API
-        h5 All logs:
-        
+        h3 User Logs
+                
         table.table
           thead
             tr
@@ -43,60 +47,15 @@ block content
               th(style='text-align: center;') Action
               th(style='text-align: center;') Data
               
-          for result in info
+          for result in user
             -var extra = JSON.stringify(result.extraData);
             tbody
               tr
                 td #{result.userId}
                 td #{result.action}
-                td #{extra}
-              tr
-          
-  // Sections
-  section#newusers.sections.lightbg
-    .container.text-center
-      .heading-content
-        h5 New users:
-        
-        table.table
-          thead
-            tr
-              th(style='text-align: center;') UserID
-              th(style='text-align: center;') Data
-              
-          for result in newusers
-            -var extra = JSON.stringify(result.extraData);
-            tbody
-              tr
-                td #{result.userId}
                 td #{extra}
               tr
                 
-  // Sections
-  section#today.sections.lightbg
-    .container.text-center
-      .heading-content
-        h5 Today's Logs:
-        
-        table.table
-          thead
-            tr
-              th(style='text-align: center;') UserID
-              th(style='text-align: center;') Action
-              th(style='text-align: center;') Data
-              
-          for result in today
-            -var extra = JSON.stringify(result.extraData);
-            tbody
-              tr
-                td #{result.userId}
-                td #{result.action}
-                td #{extra}
-              tr
-        
-  a(href='#')
-    button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET
-          
   // Footer
   footer#footer.footer.colorsbg
     .container
@@ -116,3 +75,5 @@ block content
    script(src='/javascripts/jquery.magnific-popup.js')
    script(src='/javascripts/plugins.js')
    script(src='/javascripts/main.js')
+
+            

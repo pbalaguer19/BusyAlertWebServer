@@ -75,6 +75,26 @@ app.get('/api', function(req, res){
 
 });
 
+app.get('/users', function(req, res){
+  res.render('users', {});
+});
+
+app.post('/users', function(req, res){
+  var id = req.body.userID;
+  var where = {
+    userId: {
+      $eq: userID
+    }
+  }
+
+  db.userinfo.findAll({where: where}).then(function (userinfos){
+    res.render('api', { user: userinfos });
+  }, function (e) {
+    res.status(500).send();
+  });
+});
+
+
 app.post('/api', function(req, res){
 	db.userinfo.create({
     userId: req.body.userId,
