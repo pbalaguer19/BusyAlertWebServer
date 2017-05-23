@@ -36,9 +36,9 @@ app.get('/download', function(req, res){
 
 app.get('/userinfos', function(req, res){
   var query = req.query;
-  var attr = ['userId', 'action', 'extraData'];
+  //var attr = ['userId', 'action', 'extraData'];
 
-  db.userinfo.findAll({attributes: attr}).then(function (userinfos){
+  db.userinfo.findAll({}).then(function (userinfos){
     res.json(userinfos);
   }, function (e) {
     res.status(500).send();
@@ -46,15 +46,17 @@ app.get('/userinfos', function(req, res){
 });
 
 app.post('/userinfos', function(req, res){
-  var body = _.pick(req.body, 'userId', 'action', 'extraData');
-
-	db.userinfo.create(body).then(function (userinfos) {
-		res.json(userinfos.toJSON());
+	db.userinfo.create({
+    userId: req.body.userId,
+    action: req.body.action,
+    extraData: req.body.extraData
+  }).then(function (userinfos) {
+		res.json(userinfos);
 	}, function (e) {
     console.log(req);
 		res.status(400).json(e);
 	});
-})
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
