@@ -36,12 +36,23 @@ app.get('/download', function(req, res){
 
 app.get('/api', function(req, res){
   var query = req.query;
+  var allLogs = {}
+  var where = {
+    action: 'NEW_USER'
+  }
 
   db.userinfo.findAll({}).then(function (userinfos){
-    res.render('api', { info: userinfos });
+    allLogs = userinfos;
   }, function (e) {
     res.status(500).send();
   });
+
+  db.userinfo.findAll({where: where}).then(function (userinfos){
+    res.render('api', { info: allLogs, newusers: userinfo });
+  }, function (e) {
+    res.status(500).send();
+  });
+
 });
 
 app.post('/api', function(req, res){

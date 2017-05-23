@@ -24,11 +24,11 @@ block content
             a(href='#') API
   
   // Sections
-  section#services.sections.lightbg
+  section#all.sections.lightbg
     .container.text-center
       .heading-content
         h3 API
-        h5 All historic:
+        h5 All logs:
         
         table.table
           thead
@@ -43,6 +43,29 @@ block content
               tr
                 td #{result.userId}
                 td #{result.action}
+                td #{extra}
+              tr
+      
+        a(href='#')
+          button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET
+          
+  // Sections
+  section#newusers.sections.lightbg
+    .container.text-center
+      .heading-content
+        h5 New users:
+        
+        table.table
+          thead
+            tr
+              th(style='text-align: center;') UserID
+              th(style='text-align: center;') Data
+              
+          for result in newusers
+            -var extra = JSON.stringify(result.extraData);
+            tbody
+              tr
+                td #{result.userId}
                 td #{extra}
               tr
       
