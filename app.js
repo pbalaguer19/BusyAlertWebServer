@@ -34,17 +34,6 @@ app.get('/download', function(req, res){
   res.download(file); // Set disposition and send it.
 });
 
-app.get('/api', function(req, res){
-  var query = req.query;
-  //var attr = ['userId', 'action', 'extraData'];
-
-  db.userinfo.findAll({}).then(function (userinfos){
-    res.render('api', { info: JSON.stringify(userinfos) });
-  }, function (e) {
-    res.status(500).send();
-  });
-});
-
 app.post('/api', function(req, res){
 	db.userinfo.create({
     userId: req.body.userId,
