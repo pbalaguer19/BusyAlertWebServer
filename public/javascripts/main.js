@@ -36,28 +36,6 @@ jQuery(document).ready(function ($) {
         offset: 160
     });
 
-    /*---------------------------------------------*
-     * Google Map Area
-     ---------------------------------------------*/
-
-    var map = new GMaps({
-        el: '#map',
-        lat: 23.535726,
-        lng: 90.713344,
-        scrollwheel: false
-    });
-
-
-    map.addMarker({
-        lat: 23.535726,
-        lng: 90.713344,
-        title: 'Lima',
-        infoWindow: {
-            content: '<p>Daudkandi Bazar, Comilla</p>'
-        }
-
-    });
-	
 	/*---------------------------------------------*
      * Gallery Pop Up Animation
      ---------------------------------------------*/
@@ -101,7 +79,7 @@ jQuery(document).ready(function ($) {
 
 
     /*---------------------------------------------*
-     * Counter 
+     * Counter
      ---------------------------------------------*/
 
 //    $('.statistic-counter').counterUp({
