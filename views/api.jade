@@ -33,9 +33,9 @@ block content
         table.table
           thead
             tr
-              th UserID
-              th Action
-              th Data
+              th(style='text-align: center;') UserID
+              th(style='text-align: center;') Action
+              th(style='text-align: center;') Data
               
           for result in info
             -var extra = JSON.stringify(result.extraData);
