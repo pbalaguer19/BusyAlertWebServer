@@ -24,20 +24,21 @@ block content
             a(href='/api') API
           li.active
             a(href='/users') Users logs
-  
-  form(action='/users', method='post')
-    input(type='text', name='userID', placeholder='Write a User ID')
-
-  a(type='submit')
-    button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET USER LOG
-    
-  a(href='/deleteuser', type='submit')
-    button.btn.btn-primary.btn-lg(style='margin-top: 40px;') DELETE USER LOG
     
   // Sections
   section#all.sections.lightbg
     .container.text-center
       .heading-content
+        
+        form(action='/users', method='post')
+          input(type='text', name='userID', placeholder='Write a User ID')
+
+        a(type='submit')
+          button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET USER LOG
+          
+        a(href='/deleteuser', type='submit')
+          button.btn.btn-primary.btn-lg(style='margin-top: 40px; margin-left: 40px;') DELETE USER LOG
+          
         h3 User Logs
                 
         table.table
