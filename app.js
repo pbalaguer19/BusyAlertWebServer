@@ -9,7 +9,6 @@ var _ = require('underscore');
 var db = require('./models/index');
 
 var index = require('./routes/index');
-var api = require('./routes/api');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -29,13 +28,35 @@ app.use(stylus.middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/api', api);
 
 app.get('/download', function(req, res){
   var file = __dirname + '/public/pdf/BUSYALERT USER’S GUIDE.pdf';
   res.download(file); // Set disposition and send it.
 });
 
+app.get('/api', function(req, res){
+  var query = req.query;
+  //var attr = ['userId', 'action', 'extraData'];
+
+  db.userinfo.findAll({}).then(function (userinfos){
+    res.json(userinfos);
+  }, function (e) {
+    res.status(500).send();
+  });
+});
+
+app.post('/api', function(req, res){
+	db.userinfo.create({
+    userId: req.body.userId,
+    action: req.body.action,
+    extraData: req.body.extraData
+  }).then(function (userinfos) {
+		res.json(userinfos);
+	}, function (e) {
+    console.log(req);
+		res.status(400).json(e);
+	});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
