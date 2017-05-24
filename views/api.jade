@@ -86,7 +86,9 @@ block content
           for result in today
             tbody
               tr
-                td #{result.userId}
+                td
+                  a(href='https://ancient-cliffs-50679.herokuapp.com/users/' + result.userId)
+                    | #{result.userId}
                 td #{result.action}
                 td #{result.extraData}
               tr
