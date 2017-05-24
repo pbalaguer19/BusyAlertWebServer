@@ -57,7 +57,7 @@ block content
               tr
                 td #{result.userId}
                 form(action='/users', method='get')
-                input(type='text', name='userId', value=result.userId)
+                input(type='hidden', name='userId', value=result.userId)
                 td #{result.action}
                 td #{extra}
               tr
