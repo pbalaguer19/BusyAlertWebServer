@@ -83,9 +83,11 @@ app.get('/users', function(req, res) {
     wherequery.userId = query.userId;
   }
   if (query.hasOwnProperty('action')) {
-    wherequery.action: {
+    wherequery = {
+      action: {
         $like: '%' + query.action + '%'
       }
+    }
   }
 
   db.userinfo.findAll({where: wherequery}).then(function (userinfos){
