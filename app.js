@@ -63,7 +63,7 @@ app.get('/api', function(req, res){
 });
 
 // GET /actions/:actionType
-app.get('/actions/:actionType', function(req, res) {
+/*app.get('/actions/:actionType', function(req, res) {
   db.userinfo..findAll({
     where: {
       action: req.params.actionType
@@ -78,7 +78,7 @@ app.get('/actions/:actionType', function(req, res) {
     res.status(500).send();
   });
 });
-
+*/
 // GET /users/:userId
 app.get('/users/:userId', function(req, res) {
   db.userinfo.findAll({
