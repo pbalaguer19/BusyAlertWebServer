@@ -41,7 +41,6 @@ block content
                     
         h3 User Logs
         
-        form(action='/users', method='get')        
         table.table
           thead
             tr
@@ -53,12 +52,14 @@ block content
             tbody
               tr
                 td #{result.userId}
-                input(type='radio', name='userId', value=result.userId)
+                form(action='/users', method='get')
+                  input(type='radio', name='userId', value=result.userId)
                 td #{result.action}
                 td #{result.extraData}
               tr
-          a(type='submit', name='delete')
-            button.btn.btn-primary.btn-lg(style='margin-top: 40px; margin-left: 40px; margin-bottom: 40px;') DELETE
+          form(action='/users', method='get')
+            a(type='submit', name='delete')
+              button.btn.btn-primary.btn-lg(style='margin-top: 40px; margin-left: 40px; margin-bottom: 40px;') DELETE
                 
   // Footer
   footer#footer.footer.colorsbg
