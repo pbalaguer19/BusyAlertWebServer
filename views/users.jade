@@ -55,7 +55,7 @@ block content
             -var extra = JSON.stringify(result.extraData);
             tbody
               tr
-                td #{result.userId}
+                td input(type='text', name='userId', value=result.userId)#{result.userId}
                 td #{result.action}
                 td #{extra}
               tr
