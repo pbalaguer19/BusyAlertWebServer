@@ -102,10 +102,12 @@ app.get('/users', function(req, res) {
 app.delete('/users/:userId', function(req, res) {
   db.userinfo.destroy({
     where: {
-      userId: req.params.id
+      userId: req.params.userId
     }
-  }).then(function(todo) {
-    res.json(todo);
+  }).then(function(userinfo) {
+    res.json(userinfo);
+  }, function (e) {
+    res.status(500).send();
   });
 });
 
