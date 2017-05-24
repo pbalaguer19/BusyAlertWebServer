@@ -14,6 +14,11 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 var userinfos = [];
 
+const actionList = [ 'NEW_USER', 'USER_UNSUBSCRIBED',
+                    'USER_LOGGED_IN', 'USER_LOGGED_OUT',
+                    'STATUS_BUSY', 'STATUS_AVAILABLE',
+                    'FAVOURITE_ADDED', 'FAVOURITE_REMOVED'];
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -83,7 +88,7 @@ app.get('/users/:userId', function(req, res) {
     }
   }).then(function (userinfo) {
     if (userinfo) {
-      res.render('users', { title: 'Express', user: userinfo });
+      res.render('users', { title: 'Express', user: userinfo, actions: actionList });
     } else {
       res.status(404).send();
     }
@@ -94,10 +99,6 @@ app.get('/users/:userId', function(req, res) {
 
 // GET /users?userId=
 app.get('/users', function(req, res) {
-  const actionList = [ 'NEW_USER', 'USER_UNSUBSCRIBED',
-                      'USER_LOGGED_IN', 'USER_LOGGED_OUT',
-                      'STATUS_BUSY', 'STATUS_AVAILABLE',
-                      'FAVOURITE_ADDED', 'FAVOURITE_REMOVED'];
   var query = req.query;
   var wherequery = {};
   if (query.hasOwnProperty('userId') && query.userId.length > 0) {
