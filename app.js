@@ -98,22 +98,6 @@ app.get('/users', function(req, res) {
   });
 });
 
-app.post('/users', function(req, res){
-  var id = req.body.userID;
-  var where = {
-    userId: {
-      $eq: id
-    }
-  }
-
-  db.userinfo.findAll({where: where}).then(function (userinfos){
-    res.render('api', { user: userinfos });
-  }, function (e) {
-    res.status(500).send();
-  });
-});
-
-
 app.post('/api', function(req, res){
 	db.userinfo.create({
     userId: req.body.userId,
@@ -122,7 +106,6 @@ app.post('/api', function(req, res){
   }).then(function (userinfos) {
 		res.json(userinfos);
 	}, function (e) {
-    console.log(req);
 		res.status(400).json(e);
 	});
 });
