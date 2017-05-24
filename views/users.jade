@@ -54,14 +54,14 @@ block content
               tr
                 td
                   form(action='/users', method='get')
-                    input(type='checkbox', name='userId', value=result.userId)
+                    input(type='hidden', name='userId', value=result.userId)
                 td #{result.userId}
                 td #{result.action}
                 td #{result.extraData}
               tr
         
         form(action='/users', method='get')
-          button(type='submit')
+          button(type='submit') DELETE
                 
   // Footer
   footer#footer.footer.colorsbg
