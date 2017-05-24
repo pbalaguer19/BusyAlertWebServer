@@ -86,10 +86,7 @@ block content
           for result in today
             tbody
               tr
-                td
-                  a(href='https://ancient-cliffs-50679.herokuapp.com/users/1')
-                    div(style='height:100%;width:100%')
-                      | #{result.userId}
+                td #{result.userId}
                 td #{result.action}
                 td #{result.extraData}
               tr
