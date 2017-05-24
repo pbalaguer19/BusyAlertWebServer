@@ -77,8 +77,12 @@ app.get('/api', function(req, res){
 
 // GET /users/:userId
 app.get('/users/:userId', function(req, res) {
-  db.userinfo.findById(req.params.userId).then(function (userinfo) {
-    if (!!userinfo) {
+  db.userinfo.findAll({
+    where: {
+      userId: req.params.userId
+    }
+  }).then(function (userinfo) {
+    if (userinfo) {
       res.render('users', { title: 'Express', user: userinfo });
     } else {
       res.status(404).send();
