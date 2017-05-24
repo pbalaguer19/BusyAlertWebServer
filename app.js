@@ -79,6 +79,20 @@ app.get('/users', function(req, res){
   res.render('users', { title: 'Express', user: {} });
 });
 
+// GET /users?
+app.get('/users', function(req, res) {
+  var query = req.query;
+  var wherequery = {};
+  if (query.hasOwnProperty('userId')) {
+    wherequery.userId = userId;
+  }
+  db.userinfo.findAll({where: wherequery}).then(function (userinfos){
+    res.render('api', { user: userinfos });
+  }, function (e) {
+    res.status(500).send();
+  });
+});
+
 app.post('/users', function(req, res){
   var id = req.body.userID;
   var where = {
