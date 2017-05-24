@@ -44,12 +44,11 @@ block content
               th(style='text-align: center;') Data
               
           for result in info
-            -var extra = JSON.stringify(result.extraData);
             tbody
               tr
                 td #{result.userId}
                 td #{result.action}
-                td #{extra}
+                td #{result.extraData}
               tr
           
   // Sections
@@ -65,11 +64,10 @@ block content
               th(style='text-align: center;') Data
               
           for result in newusers
-            -var extra = JSON.stringify(result.extraData);
             tbody
               tr
                 td #{result.userId}
-                td #{extra}
+                td #{result.extraData}
               tr
                 
   // Sections
@@ -86,12 +84,11 @@ block content
               th(style='text-align: center;') Data
               
           for result in today
-            -var extra = JSON.stringify(result.extraData);
             tbody
               tr
                 td #{result.userId}
                 td #{result.action}
-                td #{extra}
+                td #{result.extraData}
               tr
         
   a(href='#')

@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     extraData: {
-      type: DataTypes.JSON,
+      type: DataTypes.STRING,
       allowNull: false
     }
   });
