@@ -75,10 +75,6 @@ app.get('/api', function(req, res){
 
 });
 
-app.get('/users', function(req, res){
-  res.render('users', { title: 'Express', user: {} });
-});
-
 // GET /users?
 app.get('/users', function(req, res) {
   var query = req.query;
