@@ -87,6 +87,7 @@ app.get('/users', function(req, res) {
     wherequery.userId.$eq = userId;
   }
   db.userinfo.findAll({where: wherequery}).then(function (userinfos){
+    console.log(userinfos);
     res.render('api', { user: userinfos });
   }, function (e) {
     res.status(500).send();
