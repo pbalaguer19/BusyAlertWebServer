@@ -79,7 +79,7 @@ app.get('/api', function(req, res){
 app.get('/users/userId', function(req, res) {
   db.userinfo.findById(req.params.userId).then(function (userinfo) {
     if (!!userinfo) {
-      res.render('users', { title: 'Express', user: userinfo});
+      res.render('users', { title: 'Express', user: userinfo, actions: actionList });
     } else {
       res.status(404).send();
     }
