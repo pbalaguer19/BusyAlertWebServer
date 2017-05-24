@@ -79,10 +79,10 @@ app.get('/api', function(req, res){
 app.get('/users', function(req, res) {
   var query = req.query;
   var wherequery = {};
-  if (query.hasOwnProperty('userId')) {
+  if (query.hasOwnProperty('userId') && query.userId.length > 0) {
     wherequery.userId = query.userId;
   }
-  if (query.hasOwnProperty('action')) {
+  if (query.hasOwnProperty('action') && query.action.length > 0) {
     wherequery.action = query.action;
   }
 
