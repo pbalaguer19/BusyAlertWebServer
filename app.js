@@ -63,7 +63,21 @@ app.get('/api', function(req, res){
 });
 
 // GET /actions/:actionType
-app.get('/actions/:actionType')
+app.get('/actions/:actionType', function(req, res) {
+  db.userinfo..findAll({
+    where: {
+      action: req.params.actionType
+    }
+  }).then(function (userinfo) {
+    if (userinfo) {
+      res.render('users', { title: 'Express', user: userinfo, actions: actionList });
+    } else {
+      res.status(404).send();
+    }
+  }, function (e) {
+    res.status(500).send();
+  });
+});
 
 // GET /users/:userId
 app.get('/users/:userId', function(req, res) {
