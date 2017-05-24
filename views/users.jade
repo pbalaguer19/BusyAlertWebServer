@@ -50,14 +50,12 @@ block content
               th(style='text-align: center;') UserID
               th(style='text-align: center;') Action
               th(style='text-align: center;') Data
-              
+        form(action='/users', method='get')      
           for result in user
             -var extra = JSON.stringify(result.extraData);
             tbody
               tr
-                td #{result.userId}
-                form(action='/users', method='get')
-                input(type='hidden', name='userId', value=result.userId)
+                td input(type='radio', name='userId', value=result.userId) #{result.userId}
                 td #{result.action}
                 td #{extra}
               tr
