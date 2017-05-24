@@ -98,6 +98,17 @@ app.get('/users', function(req, res) {
   });
 });
 
+// DELETE /users/:userId
+app.delete('/users/:userId', function(req, res) {
+  db.userinfo.destroy({
+    where: {
+      userId: req.params.id
+    }
+  }).then(function(todo) {
+    res.json(todo);
+  });
+});
+
 app.post('/api', function(req, res){
 	db.userinfo.create({
     userId: req.body.userId,
