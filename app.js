@@ -77,12 +77,17 @@ app.get('/api', function(req, res){
 
 // GET /users?userId=
 app.get('/users', function(req, res) {
+  const actionList = [ 'NEW_USER', 'USER_UNSUBSCRIBED',
+                      'USER_LOGGED_IN', 'USER_LOGGED_OUT',
+                      'STATUS_BUSY', 'STATUS_AVAILABLE',
+                      'FAVOURITE_ADDED', 'FAVOURITE_REMOVED'];
   var query = req.query;
   var wherequery = {};
   if (query.hasOwnProperty('userId') && query.userId.length > 0) {
     wherequery.userId = query.userId;
   }
-  if (query.hasOwnProperty('action') && query.action.length > 0) {
+  if (query.hasOwnProperty('action') && query.action.length > 0
+        && actionList.indexOf(query.action) >= 0) {
     wherequery.action = query.action;
   }
 
