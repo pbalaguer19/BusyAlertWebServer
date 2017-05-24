@@ -51,15 +51,16 @@ block content
           for result in user
             tbody
               tr
-                td #{result.userId}
                 form(action='/users', method='get')
-                  input(type='radio', name='userId', value=result.userId)
+                  input(type='checkbox', name='userId', value=result.userId)
+                td #{result.userId}
                 td #{result.action}
                 td #{result.extraData}
               tr
-          form(action='/users', method='get')
-            a(type='submit', name='delete')
-              button.btn.btn-primary.btn-lg(style='margin-top: 40px; margin-left: 40px; margin-bottom: 40px;') DELETE
+        
+        form(action='/users', method='get')
+          a(type='submit', name='delete')
+            button.btn.btn-primary.btn-lg(style='margin-top: 40px; margin-left: 40px; margin-bottom: 40px;') DELETE
                 
   // Footer
   footer#footer.footer.colorsbg
