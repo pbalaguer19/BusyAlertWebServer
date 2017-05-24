@@ -51,8 +51,9 @@ block content
           for result in user
             tbody
               tr
-                form(action='/users', method='get')
-                  input(type='checkbox', name='userId', value=result.userId)
+                td
+                  form(action='/users', method='get')
+                    input(type='checkbox', name='userId', value=result.userId)
                 td #{result.userId}
                 td #{result.action}
                 td #{result.extraData}
