@@ -55,7 +55,8 @@ block content
             -var extra = JSON.stringify(result.extraData);
             tbody
               tr
-                td input(type='radio', name='userId', value=result.userId) #{result.userId}
+                input(type='radio', name='userId', value=result.userId)
+                td #{result.userId}
                 td #{result.action}
                 td #{extra}
               tr
