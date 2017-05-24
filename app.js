@@ -84,7 +84,7 @@ app.get('/users', function(req, res) {
   var query = req.query;
   var wherequery = {};
   if (query.hasOwnProperty('userId')) {
-    wherequery.userId = userId;
+    wherequery.userId.$eq = userId;
   }
   db.userinfo.findAll({where: wherequery}).then(function (userinfos){
     res.render('api', { user: userinfos });
