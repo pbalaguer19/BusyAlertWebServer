@@ -56,7 +56,10 @@ block content
                   a(href='users/' + result.userId)
                     div(style='height:100%;width:100%')
                       | #{result.userId}
-                td #{result.action}
+                td 
+                  a(href='actions/' + result.action)
+                    div(style='height:100%;width:100%')
+                      | #{result.action}
                 td #{result.extraData}
               tr
                 
