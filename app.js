@@ -14,7 +14,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 var userinfos = [];
 
-const actionList = [ 'NEW_USER', 'USER_UNSUBSCRIBED',
+const actionList = [ 'ALL', 'NEW_USER', 'USER_UNSUBSCRIBED',
                     'USER_LOGGED_IN', 'USER_LOGGED_OUT',
                     'STATUS_BUSY', 'STATUS_AVAILABLE',
                     'FAVOURITE_ADDED', 'FAVOURITE_REMOVED'];
@@ -105,7 +105,9 @@ app.get('/users', function(req, res) {
   }
   if (query.hasOwnProperty('action') && query.action.length > 0
         && actionList.indexOf(query.action) >= 0) {
-    wherequery.action = query.action;
+    if (query.action != 'ALL'){
+      wherequery.action = query.action;
+    }
   }
 
   db.userinfo.findAll({where: wherequery}).then(function (userinfos){
