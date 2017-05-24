@@ -31,14 +31,14 @@ block content
       .heading-content
         
         form(action='/users', method='get')
-          input(type='text', name='userId', placeholder='Write a User ID')
+          input(type='text', name='userId', placeholder='Write a User ID' class="form-control" )
           select(name='action', class='form-control' style="margin-left: 40px")
             for action in actions
               option(value=action) #{action}
           br
           a(type='submit', name='show')
             button.btn.btn-primary.btn-lg(style='margin-top: 40px; margin-bottom: 40px;') 
-              i.fa.fa-shield GET USER LOG
+              i.fa.fa-search GET USER LOG
                     
         h3 User Logs
         
