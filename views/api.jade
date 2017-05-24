@@ -21,60 +21,16 @@ block content
           li
             a(href='/') Home
           li.active
-            a(href='#all') All logs
+            a(href='#all') Tpday's logs
           li
-            a(href='#newusers') New Users
-          li
-            a(href='#today') Today's logs
-          li
-            a(href='/users') Users logs
+            a(href='/users') Search
   
   // Sections
   section#all.sections.lightbg
     .container.text-center
       .heading-content
         h3 API
-        h5 All logs:
-        
-        table.table
-          thead
-            tr
-              th(style='text-align: center;') UserID
-              th(style='text-align: center;') Action
-              th(style='text-align: center;') Data
-              
-          for result in info
-            tbody
-              tr
-                td #{result.userId}
-                td #{result.action}
-                td #{result.extraData}
-              tr
-          
-  // Sections
-  section#newusers.sections.lightbg
-    .container.text-center
-      .heading-content
-        h5 New users:
-        
-        table.table
-          thead
-            tr
-              th(style='text-align: center;') UserID
-              th(style='text-align: center;') Data
-              
-          for result in newusers
-            tbody
-              tr
-                td #{result.userId}
-                td #{result.extraData}
-              tr
-                
-  // Sections
-  section#today.sections.lightbg
-    .container.text-center
-      .heading-content
-        h5 Today's Logs:
+        h5 Today's logs:
         
         table.table
           thead
@@ -91,8 +47,8 @@ block content
                 td #{result.extraData}
               tr
         
-  a(href='#')
-    button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET
+        a(href='#')
+          button.btn.btn-primary.btn-lg(style='margin-top: 40px;') GET
           
   // Footer
   footer#footer.footer.colorsbg
