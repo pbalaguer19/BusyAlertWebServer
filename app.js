@@ -92,7 +92,7 @@ app.get('/users', function(req, res) {
   }
 
   db.userinfo.findAll({where: wherequery}).then(function (userinfos){
-    res.render('users', { title: 'Express', user: userinfos });
+    res.render('users', { title: 'Express', user: userinfos, actions: actionList });
   }, function (e) {
     res.status(500).send();
   });
