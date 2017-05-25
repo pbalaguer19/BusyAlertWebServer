@@ -101,7 +101,9 @@ app.get('/users', function(req, res) {
   var query = req.query;
   var wherequery = {};
   if (query.hasOwnProperty('userId') && query.userId.length > 0) {
-    wherequery.userId = query.userId;
+    wherequery.userId = {
+      $like: '%' + query.userId + '%'
+    };
   }
   if (query.hasOwnProperty('action') && query.action.length > 0
         && actionList.indexOf(query.action) >= 0) {
