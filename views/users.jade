@@ -39,9 +39,7 @@ block content
           a(type='submit', name='show')
             button.btn.btn-primary.btn-lg(style='margin-top: 20px; margin-bottom: 40px;') 
               i.fa.fa-search      GET USER LOG
-        
-        input.typeahead.tt-query(type='text', name='typeahead', autocomplete='off', spellcheck='false', placeholder='Type your Query')
-                    
+            
         h3 User Logs
         
         table.table
@@ -84,15 +82,5 @@ block content
    script(src='/javascripts/jquery.magnific-popup.js')
    script(src='/javascripts/plugins.js')
    script(src='/javascripts/main.js')
-   
-   script(src='/javascripts/typeahead.min.js', type='text/javascript')
-   script(type='text/javascript').
-      $(document).ready(function(){
-      $('input.typeahead').typeahead({
-      name: 'countries',
-      remote: 'http://localhost:3000/search?key=%QUERY',
-      limit: 10
-      });
-      });
 
             
