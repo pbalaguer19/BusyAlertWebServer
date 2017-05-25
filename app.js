@@ -145,7 +145,7 @@ app.post('/api', function(req, res){
 });
 
 // GET JSON /users/:userId
-app.get('/users/:userId', function(req, res) {
+app.get('/history/:userId', function(req, res) {
   db.userinfo.findAll({
     where: {
       userId: req.params.userId
