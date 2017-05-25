@@ -119,19 +119,6 @@ app.get('/users', function(req, res) {
   });
 });
 
-app.get('/search', function(req, res) {
-  var query = req.query;
-  var wheresearch = {};
-  wheresearch.userId = {
-    $like: '%' + query.key + '%'
-  };
-  db.userinfo.findAll({where: wheresearch}).then(function (userinfos) {
-    res.send(JSON.stringify(userinfos));
-  }, function(e) {
-    res.status(500).send();
-  });
-});
-
 // DELETE /users/:userId
 app.delete('/users/:userId', function(req, res) {
   db.userinfo.destroy({
@@ -155,6 +142,23 @@ app.post('/api', function(req, res){
 	}, function (e) {
 		res.status(400).json(e);
 	});
+});
+
+// GET JSON /users/:userId
+app.get('/users/:userId', function(req, res) {
+  db.userinfo.findAll({
+    where: {
+      userId: req.params.userId
+    }
+  }).then(function (userinfo) {
+    if (userinfo) {
+      res.json(userinfo);
+    } else {
+      res.status(404).send();
+    }
+  }, function (e) {
+    res.status(500).send();
+  });
 });
 
 // catch 404 and forward to error handler
