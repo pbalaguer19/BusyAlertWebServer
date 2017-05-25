@@ -121,7 +121,7 @@ app.get('/search', function(req, res) {
   var query = req.query;
   var wheresearch = {};
   wheresearch.userId = {
-    $like: '%' + query.q + '%'
+    $like: '%' + query.key + '%'
   };
   db.userinfo.findAll({where: wheresearch}).then(function (userinfos) {
     res.send(JSON.stringify(userinfos));
