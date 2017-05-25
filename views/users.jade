@@ -39,6 +39,11 @@ block content
           a(type='submit', name='show')
             button.btn.btn-primary.btn-lg(style='margin-top: 20px; margin-bottom: 40px;') 
               i.fa.fa-search      GET USER LOG
+        
+        script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+        script(src='typeahead.min.js', type='text/javascript')
+        
+        input.typeahead.tt-query(spellcheck='false', autocomplete='off', name='typeahead', type='text')
                     
         h3 User Logs
         
@@ -82,5 +87,14 @@ block content
    script(src='/javascripts/jquery.magnific-popup.js')
    script(src='/javascripts/plugins.js')
    script(src='/javascripts/main.js')
+   
+   script.
+     $(document).ready(function(){
+     $('input.typeahead').typeahead({
+     name: 'typeahead',
+     remote: 'https://ancient-cliffs-50679.herokuapp.com/search?key=%QUERY',
+     limit: 10
+     });
+     });
 
             
