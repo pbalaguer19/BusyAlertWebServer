@@ -117,6 +117,19 @@ app.get('/users', function(req, res) {
   });
 });
 
+app.get('/search', function(req, res) {
+  var query = req.query;
+  var wheresearch = {};
+  wheresearch.userId = {
+    $like: '%' + query.q + '%'
+  };
+  db.userinfo.findAll({where: wheresearch}).then(function (userinfos) {
+    res.send(JSON.stringify(userinfos));
+  }, function(e) {
+    res.status(500).send();
+  });
+});
+
 // DELETE /users/:userId
 app.delete('/users/:userId', function(req, res) {
   db.userinfo.destroy({
