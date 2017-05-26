@@ -115,28 +115,20 @@ block content
                 br
                 | Universitat de Lleida Student
     
-  section#about.sections.lightbg(style='padding-bottom: 100px;')
-    .container.text-center
-      .item.col-md-12
-        a.twitter-hashtag-button(href='https://twitter.com/intent/tweet?button_hashtag=BusyAlert', data-show-count='false') Tweet #BusyAlert
-        script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
-        
-      .item.col-md-12
-        a.twitter-timeline(href='https://twitter.com/hashtag/BusyAlert', data-widget-id='867695246683119616') Tweets about #BusyAlert
-        script.
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     // /container
   // Footer
   footer#footer.footer.colorsbg
     .container
       .row
-        .col-md-6.col-sm-6.col-xs-12
+        .col-md-4.col-sm-6.col-xs-12
           .copyright.text-left
             p
               | Template by
               a(href='http://bootstrapthemes.co')  Bootstrap Themes
               | 2016. All rights reserved.
-        .col-md-6.col-sm-6.col-xs-12
+        .col-md-4.col-sm-6.col-xs-12
+          a.twitter-hashtag-button(href='https://twitter.com/intent/tweet?button_hashtag=BusyAlert', data-show-count='false') Tweet #BusyAlert
+        .col-md-4.col-sm-6.col-xs-12
           .copyright.text-right
             p BusyAlert | Universitat de Lleida
 
@@ -145,3 +137,4 @@ block content
   script(src='/javascripts/jquery.magnific-popup.js')
   script(src='/javascripts/plugins.js')
   script(src='/javascripts/main.js')
+  script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
