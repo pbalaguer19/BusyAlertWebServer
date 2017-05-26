@@ -58,15 +58,15 @@ block content
           for result in user
             tbody
               tr
-                td(align='left') 
+                td(align='justify') 
                   a(href='users/' + result.userId)
-                    div(style='height:100%;width:150%')
+                    div(style='height:100%;width:100%')
                       | #{result.userId}
-                td(align='left')
+                td(align='justify')
                   a(href='actions/' + result.action)
-                    div(style='height:100%;width:200%')
+                    div(style='height:100%;width:100%')
                       | #{result.action}
-                td(align='left') #{result.extraData}
+                td(align='justify') #{result.extraData}
               tr
                 
   // Footer
