@@ -62,11 +62,11 @@ block content
                   a(href='users/' + result.userId)
                     div(style='height:100%;width:100%')
                       | #{result.userId}
-                td 
+                td (align='left')
                   a(href='actions/' + result.action)
                     div(style='height:100%;width:100%')
                       | #{result.action}
-                td #{result.extraData}
+                td(align='left') #{result.extraData}
               tr
                 
   // Footer
