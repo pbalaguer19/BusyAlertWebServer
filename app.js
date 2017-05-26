@@ -96,8 +96,8 @@ app.get('/users/:userId', function(req, res) {
   });
 });
 
-// GET /users?userId=
-app.get('/users', function(req, res) {
+// GET /search?userId=
+app.get('/search', function(req, res) {
   var query = req.query;
   var wherequery = {};
   if (query.hasOwnProperty('userId') && query.userId.length > 0) {
