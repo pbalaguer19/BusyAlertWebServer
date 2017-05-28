@@ -35,13 +35,13 @@ block content
             form(action='/users', method='get')
               input(type='text', name='userId', placeholder='Write a User ID' class="form-control" )
           .col-md-4
-            select(name='action', class='form-control' style="margin-top: 0px")
-              for action in actions
-                option(value=action) #{action}
+              select(name='action', class='form-control' style="margin-top: 0px")
+                for action in actions
+                  option(value=action) #{action}
           .col-md-4
-            a(type='submit', name='show')
-              button.btn.btn-primary.btn-lg(style='margin-top: 20px; margin-bottom: 0px;') 
-                i.fa.fa-search      GET USER LOG
+              a(type='submit', name='show')
+                button.btn.btn-primary.btn-lg(style='margin-top: 20px; margin-bottom: 0px;') 
+                  i.fa.fa-search      GET USER LOG
   
   section#about.sections.lightbg(style='padding-bottom: 20px;') 
     .container.text-center
