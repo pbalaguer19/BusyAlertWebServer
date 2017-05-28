@@ -38,10 +38,10 @@ block content
             select(name='action', class='form-control' style="margin-top: 0px")
               for action in actions
                 option(value=action) #{action}
-          
-              a(type='submit', name='show')
-                button.btn.btn-primary.btn-lg(style='margin-top: 20px; margin-bottom: 0px;') 
-                  i.fa.fa-search      GET USER LOG
+          form(action='/users', method='get')
+            a(type='submit', name='show')
+              button.btn.btn-primary.btn-lg(style='margin-top: 20px; margin-bottom: 0px;') 
+                i.fa.fa-search      GET USER LOG
   
   section#about.sections.lightbg(style='padding-bottom: 20px;') 
     .container.text-center
